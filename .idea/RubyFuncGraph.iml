@@ -5,16 +5,23 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="ruby-3.4.4-p34" jdkType="RUBY_SDK" />
+    <orderEntry type="jdk" jdkName="ruby-3.3.8-p144" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="base64 (v0.2.0, ruby-3.4.4-p34) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="logger (v1.7.0, ruby-3.4.4-p34) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mustermann (v3.0.3, ruby-3.4.4-p34) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack (v3.1.15, ruby-3.4.4-p34) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack-protection (v4.1.1, ruby-3.4.4-p34) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack-session (v2.1.1, ruby-3.4.4-p34) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ruby2_keywords (v0.0.5, ruby-3.4.4-p34) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sinatra (v4.1.1, ruby-3.4.4-p34) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.6.0, ruby-3.4.4-p34) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.1.5, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.3.5, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dentaku (v3.5.4, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="gruff (v0.27.0, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="histogram (v0.2.4.1, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="logger (v1.6.0, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.15.0, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mustermann (v3.0.3, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pkg-config (v1.6.2, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v3.1.15, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-protection (v4.1.1, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-session (v2.1.1, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rmagick (v6.1.1, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra (v4.1.1, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra-contrib (v4.1.1, ruby-3.3.8-p144) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.6.0, ruby-3.3.8-p144) [gem]" level="application" />
   </component>
 </module>

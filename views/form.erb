@@ -5,11 +5,68 @@
   <style>
       /*TODO: добавить стили для заголовка, поля ввода, кнопок*/
 
+      /* Основные стили */
+      body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 0;
+      }
+
       .container {
           max-width: 800px;
           margin: 0 auto;
+          padding: 20px;
       }
 
+      h1 {
+          color: #2c3e50;
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      /* Форма */
+      input[type="text"] {
+          width: 100%;
+          padding: 12px;
+          margin: 10px 0;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 16px;
+          box-sizing: border-box;
+      }
+
+      .buttons {
+          margin: 15px 0;
+      }
+
+      button {
+          background-color: #3498db;
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          margin: 5px 5px 5px 0;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 14px;
+          transition: background-color 0.3s;
+      }
+
+      button:hover {
+          background-color: #2980b9;
+      }
+
+      /* Сообщения об ошибках */
+      .error {
+          color: #e74c3c;
+          margin-top: 10px;
+          padding: 10px;
+          background-color: #fde8e8;
+          border-radius: 4px;
+          border-left: 4px solid #e74c3c;
+      }
+
+      /* Контейнер графика */
       .graph-container {
           width: 100%;
           height: 500px;
@@ -28,13 +85,16 @@
           color: #7f8c8d;
           font-size: 1.2rem;
           text-align: center;
+          padding: 20px;
       }
 
       .graph {
           width: 100%;
           height: 100%;
+          object-fit: contain;
       }
 
+      /* Оси координат */
       .axes {
           position: absolute;
           width: 100%;
@@ -66,8 +126,6 @@
       .tick {
           position: absolute;
           background-color: #333;
-          font-size: 12px;
-          color: #333;
       }
 
       .x-tick {
@@ -83,26 +141,35 @@
       }
   </style>
 </head>
-<body>
 <div class="container">
-  <h1>Введите функцию</h1>
+  <h1>Построитель графиков функций</h1>
   <form action="/submit" method="post">
     <div>
-      <input type="text" name="user_input" placeholder="Введите функцию..." value="<%= @function || '' %>">
+      <input type="text" name="user_input"
+             placeholder="Введите функцию (например: x**2 или sin(x))"
+             value="<%= @function || '' %>"
+             required>
     </div>
-    <button type="submit" name="action" value="function">Построить график функции</button>
-    <button type="submit" name="action" value="derivative">Построить график производной</button>
-    <button type="submit" name="action" value="integral">Построить график интеграла</button>
+    <div class="buttons">
+      <button type="submit" name="action" value="function">Построить график функции</button>
+      <button type="submit" name="action" value="derivative">Производная функции</button>
+      <button type="submit" name="action" value="integral">Интеграл функции</button>
+    </div>
   </form>
+
+  <% if @error %>
+    <div class="error">
+      <%= @error %>
+    </div>
+  <% end %>
 
   <div class="graph-container">
     <% if @graph %>
-      <img src="data:image/svg+xml;base64,<%= @graph %>" class="graph" alt="График функции">
+      <img src="<%= @graph %>" class="graph" alt="График функции">
     <% else %>
       <div class="axes">
         <div class="axis x-axis"></div>
         <div class="axis y-axis"></div>
-        <!-- Добавляем метки осей -->
         <% (-10..10).each do |i| %>
           <% if i != 0 %>
             <div class="tick x-tick" style="left: <%= 50 + i * 5 %>%"></div>
@@ -111,10 +178,10 @@
         <% end %>
       </div>
       <div class="graph-placeholder">
-        График появится здесь после ввода функции
+        График появится здесь после ввода функции.<br>
+        Примеры функций: x**2, sin(x), x**3 - 2*x + 1
       </div>
     <% end %>
   </div>
 </div>
-</body>
 </html>
