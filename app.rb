@@ -83,7 +83,7 @@ helpers do
   end
 
   def plot_derivative(function_string)
-    x, y = [], []
+    x1, y1 = [], []
     h = 0.01
 
     (-10.0..10.0).step(0.1) do |i|
@@ -92,18 +92,18 @@ helpers do
         f_xh = calculate_expression(function_string, i + h)
         next if f_x.nil? || f_xh.nil? || f_x.nan? || f_xh.nan?
 
-        x << i.round(2)
-        y << (f_xh - f_x) / h
+        x1 << i.round(2)
+        y1 << (f_xh - f_x) / h
       rescue
         next
       end
     end
 
-    save_plot_to_base64(x, y, "Производная функции: #{function_string}", "f'(x)")
+    save_plot_to_base64(x, y, "Производная функции для графика: #{function_string}", "f'(X)")
   end
 
   def plot_integral(function_string)
-    x, y = [], []
+    x1, y1 = [], []
     integral = 0.0
 
     (-10.0..10.0).step(0.1) do |i|
@@ -112,32 +112,32 @@ helpers do
         next if f_x.nil? || f_x.nan?
 
         integral += f_x * 0.1
-        x << i.round(2)
-        y << integral
+        x1 << i.round(2)
+        y1 << integral
       rescue
         next
       end
     end
 
-    save_plot_to_base64(x, y, "Интеграл функции: #{function_string}", "∫f(x)dx")
+    save_plot_to_base64(x,y, "Интеграл функции: #{function_string}", "∫f(x)dx")
   end
 
 
   def save_plot_to_base64(x, y, title, label)
-    g = Gruff::Line.new(800)
-    g.title = title
+    gruff = Gruff::Line.new(800)
+    gruff.title = title
 
     # Упрощаем метки X, иначе их будет слишком много
     labels = {}
     x.each_with_index do |val, i|
       labels[i] = val.to_s if i % 20 == 0
     end
-    g.labels = labels
+    gruff.labels = labels
 
-    g.data(label, y)
+    gruff.data(label, y)
 
     temp_file = "temp_plot_#{Time.now.to_i}.png"
-    g.write(temp_file)
+    gruff.write(temp_file)
     image_base64 = Base64.strict_encode64(File.read(temp_file))
     File.delete(temp_file)
     "data:image/png;base64,#{image_base64}"
