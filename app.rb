@@ -99,7 +99,7 @@ helpers do
       end
     end
 
-    save_plot_to_base64(x, y, "Производная функции для графика: #{function_string}", "f'(X)")
+    save_plot_to_base64(x1, y1, "Производная функции для графика: #{function_string}", "f'(X)")
   end
 
   def plot_integral(function_string)
@@ -119,7 +119,7 @@ helpers do
       end
     end
 
-    save_plot_to_base64(x,y, "Интеграл функции: #{function_string}", "∫f(x)dx")
+    save_plot_to_base64(x1,y1, "Интеграл функции: #{function_string}", "∫f(x)dx")
   end
 
 
